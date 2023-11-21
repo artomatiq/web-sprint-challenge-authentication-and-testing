@@ -67,7 +67,7 @@ describe('[POST] /api/auth/login', () => {
 
 
 describe('[GET] /api/jokes', () => {
-  test.only('valid token gets the jokes', async () => {
+  test('valid token gets the jokes', async () => {
 
     const creds = {username: 'hello', password: '1234'}
     const res1 = await request(server).post('/api/auth/register').send(creds)
