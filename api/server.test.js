@@ -77,7 +77,7 @@ describe('[GET] /api/jokes', () => {
     expect(res2.body.token).toBeDefined()
 
     const res3 = await request(server).get('/api/jokes').set('Authorization', res2.body.token)
-    expect(res3.body.message).toHaveLength(3) 
+    expect(res3.body).toHaveLength(3) 
   })
 
 

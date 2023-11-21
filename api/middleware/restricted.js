@@ -1,11 +1,11 @@
-const {secret} = require('../secrets/index')
+const {JWT_SECRET} = require('../secrets/index')
 const jwt = require('jsonwebtoken')
 
 
 module.exports = async (req, res, next) => {
   const token = req.headers.authorization
   if (token) {
-    await jwt.verify(token, secret, (error, decoded) => {
+    await jwt.verify(token, JWT_SECRET, (error, decoded) => {
       if (error) {
         next({status: 401, message: 'token invalid', er: error})
       }
@@ -16,7 +16,7 @@ module.exports = async (req, res, next) => {
     })
   }
   else {
-    next({status:401, message: 'token required'})
+    next({status:401, message: 'token required'}) 
   } 
 
 
